@@ -16,12 +16,13 @@ SECRET_KEY = 'django-insecure-uy_ghyum529rupm9hj*(8wo-(h6(xh=v2t@x0zxqo(@enk8fru
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
+CORS_ALLOW_ORIGIN_ALL = True
 
 # Application definition
 
 INSTALLED_APPS = [
     'base',
+    'corsheaders',
     
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,6 +40,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'LenderApp.urls'
