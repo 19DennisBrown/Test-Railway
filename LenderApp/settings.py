@@ -16,14 +16,14 @@ SECRET_KEY = 'django-insecure-uy_ghyum529rupm9hj*(8wo-(h6(xh=v2t@x0zxqo(@enk8fru
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_CREDENTIALS = True
+# CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_CREDENTIALS = True
 
 # Application definition
 
 INSTALLED_APPS = [
     'base',
-    'corsheaders',
+    # 'corsheaders',
     
     'django.contrib.admin',
     'django.contrib.auth',
