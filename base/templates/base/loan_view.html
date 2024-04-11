@@ -1,0 +1,109 @@
+{% extends 'base/frame.html' %}
+
+{% block title %}{{title}}{% endblock title %}
+
+{% block content %}
+<div class=" container-fluid my-5 text-center ">
+  <h1 class="text-2xl">
+    <i>Here is your loan details : </i><b>{{user.username}}</b>
+  </h1>
+  <hr>
+  <br>
+  <div>
+    {% if profile %}
+      <!--  -->
+      <div 
+        class="card bg-slate-400 mb-3 text-center"
+        style="max-width: 18rem;"
+
+        {% if state %}
+          style="
+            background-color:'green'
+          "
+        {% else  %}
+          style="
+            background-color:'green'
+          "
+        
+        {% endif  %}
+      >
+
+        <div class="card-header">Loan request by : <b>{{profile.user.username}} 
+ {{profile.surname}}</b></div>
+
+        <!--  -->
+        <table class="table table-hover table-bordered table-dark">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">ID NO</th>
+              <th scope="col">AGE</th>
+              <th scope="col">KRA PIN</th>
+              <th scope="col">LOCATION</th>
+              <th scope="col">COMPANY</th>
+              <th scope="col">SALARY</th>
+              <th scope="col">LOAN REQUESTED</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">{{profile.id}}</th>
+              <td>{{profile.id_no}}</td>
+              <td>{{profile.age}}</td>
+              <td>{{profile.kra_pin}}</td>
+              <td>{{profile.location}}</td>
+              <td>{{profile.company}}</td>
+              <td>{{profile.net_income}}</td>
+              <td>{{profile.loan_amount}}</td>
+            </tr>
+            
+            <tr>
+            {% if stateTrue  %}
+              <td colspan="3">
+                <a href="{% url 'update_loan'  %}" class="btn btn-warning">update</a>
+              </td>
+              <td colspan="3">
+                <a href="{% url 'delete_loan' profile.id %}" class="btn btn-danger">delete</a>
+              </td>
+              <td  colspan="2">
+                <div class="text-center my-1 p-4" style="width: 100px; height: 100px; border-radius: 50px; background-color: green; color: grey;">
+                  <h1 style="white-space: nowrap; font-weight: bold;" >SUCCESS</h1>
+                </div>
+              </td>
+            {% elif stateNone %}
+              <td colspan="4">
+                <a href="{% url 'update_loan'  %}" class="btn btn-warning">update</a>
+              </td>
+              <td colspan="4Ps">
+                <a href="{% url 'delete_loan' profile.id %}" class="btn btn-danger">delete</a>
+              </td>
+            {% elif stateFalse %}
+              <td colspan="3">
+                <a href="{% url 'update_loan'  %}" class="btn btn-warning">update</a>
+              </td>
+              <td colspan="3">
+                <a href="{% url 'delete_loan' profile.id %}" class="btn btn-danger">delete</a>
+              </td>
+              <td  colspan="2">
+                <div class="text-center my-1 p-4" style="width: 100px; height: 100px; border-radius: 50px; background-color: red; color: grey;">
+                  <h1 style="white-space: nowrap; font-weight: bold;" >REJECTED!</h1>
+                </div>
+              </td>
+            {% endif %}
+              
+            </tr>
+          </tbody>
+        </table>
+          </div>
+        <i>If loan is rejected, DELETE current request before aplying for another.</i>
+        </div>
+      {% else %}
+        <i>...no profile</i><br>
+        <a href="{% url 'create_loan'  %}"  class="btn btn-primary my-4">create loan</a>
+      {% endif %}
+      </div>
+      <br><hr>
+      <a href="{% url 'home' %}" class="btn btn-success">home</a>
+
+</div>
+{% endblock content %}

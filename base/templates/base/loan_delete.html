@@ -1,0 +1,21 @@
+{% extends 'base/frame.html' %}
+
+{% block title %}{{title}}{% endblock title %}
+
+{% block content %}
+<div class="container-fluid my-5 text-center">
+  <h1>
+    <i class="text-xl text-danger">Loan delete</i>
+  </h1>
+  <hr>
+  <br>
+  <div>
+    <form action="" method="post">
+      {% csrf_token %}
+
+      <input type="submit" value="delete" class="btn btn-danger text-primary m-4">
+      <a href="{{request.META.HTTP_REFERER}}" class="btn btn-warning text-danger">cancel</a>
+    </form>
+  </div>
+</div>
+{% endblock content %}

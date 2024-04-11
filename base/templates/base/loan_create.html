@@ -1,0 +1,22 @@
+{% extends 'base/frame.html' %}
+
+{% block title %}{{title}}{% endblock title %}
+
+{% block content %}
+<div  class="container-fluid text-center">
+  <h1>
+    <i>Loan create</i>
+  </h1>
+  <hr>
+  <br>
+  <div>
+    <form action="" method="post">
+      {% csrf_token %}
+      {{form.as_p}}
+      <input type="submit" value="get loan" class="btn text-primary btn-warning m-4">
+    </form>
+  </div>
+  <br><hr>
+  <a href="{% url 'home' %}" class="btn btn-success m-4">home</a>
+</div>
+{% endblock content %}

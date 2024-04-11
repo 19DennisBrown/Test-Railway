@@ -1,0 +1,133 @@
+
+{% extends 'base/frame.html' %}
+{% load static %}
+
+{% block title %}
+  {{title}}
+{% endblock title %}
+
+
+
+
+
+
+{% block content %}
+  {% if user.is_authenticated %}
+  
+  <!-- ???? -->
+  <div class="grid grid-rows-3 grid-flow-col gap-4 my-14 h-full">
+    <div class="row-span-3 border-2 rounded-xl p-4 w-96">
+      <div class="flex flex-col ...">
+        <div class="bg-orange-500 my-14 text-center h-32 rounded-xl">
+          <a href="{% url 'view_profile' %}" class="border-4 rounded-xl p-3">view loan requests</a>
+          <p class="my-4">
+            <i>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, dignissimos?</i>
+          </p>
+        </div>
+
+        <div class="bg-green-500 my-14 text-center h-32 rounded-xl">
+          <a href="{% url 'create_loan' %}" class="border-4 rounded-xl p-3">get loan today</a>
+          <p class="my-4">
+            <i>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, dignissimos?</i>
+          </p>
+        </div>
+        
+        <div class="bg-red-500 my-14 text-center h-32 rounded-xl">
+          <a href="{% url 'logout' %}" class="border-4 rounded-xl p-3">logout</a>
+          <p class="my-4">
+            <i>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, dignissimos?</i>
+          </p>
+        </div>
+      </div>
+      
+    </div>
+    <div class="col-span-2 border-2 w-auto">
+      <h1 class="text-2xl m-3"><i>Welcome to lenders optimum,  </i> <b>{{request.user.username}}</b></h1>
+
+      <p class="text-center p-4">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo maxime deleniti minima sint dolor facere minus, laboriosam perspiciatis, distinctio dolores fugit, saepe dicta laborum fugiat voluptates. Inventore assumenda facilis ex?
+      </p>
+    </div>
+    <div class="row-span-2 col-span-2 border-2">
+      
+      <div class="flex flex-row ...">
+        <div class=" w-4/5 p-4">
+          <img src="{% static 'images/pexels-larysa-charnakal-6813867.jpg'  %}" alt="business idea" class="rounded">
+        </div>
+        <div class="text-center p-5">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo dolorem dolore quos quibusdam amet aperiam harum asperiores perferendis, minus tempora quod autem ipsa ducimus fugiat sint numquam facere. Iusto minus neque nulla nobis laboriosam necessitatibus sit facere porro quis earum?
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% else %}
+ 
+  <div class="container-fluid h-3/3 p-3 ">
+    <div class="grid grid-rows-3 grid-flow-col gap-4 ">
+      <div class="row-start-2 row-span-2 shadow-lg p-4 ...">
+        <img src="{% static 'images/pexels-larysa-charnakal-6813867.jpg' %}" class="w-96 rounded-xl"  alt="samurai pose">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam veritatis quod, cum recusandae vel error vero molestiae! Sapiente asperiores necessitatibus eius ea architecto corrupti totam repudiandae dolore placeat? Quae, aperiam.
+        
+      </div>
+      <div class="row-end-3 row-span-2 border-2 rounded shadow-lg p-4">
+        <img src="{% static 'images/pexels-alpography-14132917.jpg' %}" class=" w-96 rounded-xl" alt="samurai pose">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam veritatis quod, cum recusandae vel error vero molestiae! Sapiente asperiores necessitatibus eius ea architecto corrupti totam repudiandae dolore placeat? Quae, aperiam.
+        </p>
+      </div>
+      <div class="row-start-2 row-end-4 text-center shadow-lg p-4">
+        <img src="{% static 'images/pexels-andrea-piacquadio-925786.jpg' %}" class=" w-96 rounded-xl" alt="samurai pose">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam veritatis quod, cum recusandae vel error vero molestiae! Sapiente asperiores necessitatibus eius ea architecto corrupti totam repudiandae dolore placeat? Quae, aperiam.
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  <footer>
+    
+    <div class="d-flex justify-content-around  h-32 bg-black rounded-lg text-white p-4">
+      <div class="w-1/6 text-center">
+        <p class="text-2xl">
+          About US.
+        </p>
+        <div class="flex flex-col ...">
+          <div>How we work</div>
+          <div>Investors</div>
+          <div>Terms of service</div>
+        </div>
+      </div>
+      <div class="shadow-lg w-1/6 text-center">
+        <p class="text-2xl">
+          Contact US.
+        </p>
+        <div class="flex flex-col ...">
+          <div>contact</div>
+          <div>Support</div>
+        </div>
+      </div>
+      <div class="w-1/6 text-center">
+        <p class="text-2xl">
+          Social Media. 
+        </p>
+        <div class="flex flex-col ...">
+          <div>Facebook</div>
+          <div>X</div>
+          <div>Youtube</div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="d-flex justify-content-around  h-6 bg-black rounded-lg text-white p-4">
+      <div class="w-1/6">
+        dollar
+      </div>
+      <div class="shadow-lg w-1/6">
+        Copyright
+      </div>
+      <div class="w-1/6">
+        Terms and conditions.
+      </div>
+    </div>
+  </footer>
+{% endblock content %}

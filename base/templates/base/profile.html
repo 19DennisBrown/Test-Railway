@@ -1,0 +1,21 @@
+{% extends 'base/frame.html' %}
+
+{% block title %}{{title}}{% endblock title %}
+
+{% block content %}
+    <div>
+      <h3>
+          {{request.user.username}}
+      </h3>
+      <hr>
+      <p>
+        {{user_profile.description}}
+      </p>
+      <br>
+      <hr>
+      <button>
+        <a href="{% url 'logout' %}">logout</a>
+      </button>
+    </div>
+  
+{% endblock content %}

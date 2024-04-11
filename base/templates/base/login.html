@@ -1,0 +1,57 @@
+
+{% extends 'base/frame.html' %}
+  {% block title %} {{title}} {% endblock title %}
+{% block content %}
+  <body>
+    <div class="container text-center my-28">
+
+      <h1 class="px-6 py-3 text-lg font-semibold bg-teal-500 text-white rounded-xl hover:bg-teal-700">
+        Login
+      </h1>
+      <!-- body -->
+      <div >
+        {% if messages %}
+          <ul class="border-2 text-danger h-14 w-1/4 text-center rounded-lg m-2 "  style="overflow:hidden;">
+            {% for message in messages %}
+            <li>{{message}}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+      <!--  -->
+      <div class="container w-75  p-2  text-sm d-flex  justify-content-center font-medium leading-6 text-gray-900">
+        <form action="" method="POST" class="my-3 p-3 d-flex flex-column justify-content-center  w-100 border">
+          {% csrf_token %}
+          <label for="" class="">
+            <span class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
+              username
+            </span>
+            <input type="text" name="username" placeholder="eg Jay " required class=" w-50 my-2 rounded-md border-0 py-1 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" >
+          </label>
+          <label for="" class="">
+            <span class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
+              password
+            </span>
+            <input type="password" name="password" required placeholder="*********" class=" w-50 rounded-md border-0 py-1 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" >
+          </label>
+          <div class="">
+            <input type="submit" value="submit"  class=" w-75 rounded-md bg-indigo-600 my-3 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+          </div>
+        </form>
+      </div>
+      <a href="{% url 'home'  %}">
+        <button class="btn btn-outline-danger w-20" type="submit">
+        <i>home</i>
+        </button>
+      </a>
+      <div class="my-3 ">
+        <i>not yet registered?</i>
+         <a href="{% url 'register'  %}">
+            <button class="btn btn-outline-warning w-20" type="submit">
+            <i>register</i>
+            </button>
+          </a>
+        </div>
+    </div>
+  </body>
+{% endblock content %}

@@ -1,0 +1,23 @@
+
+
+{% extends 'base/frame.html' %}
+
+{% block title %}{{title}}{% endblock title %}
+
+{% block content %}
+<div class="container-fluid text-center my-4" >
+  <h1 class="text-2xl">
+    <i>Loan update</i>
+  </h1>
+  <hr>
+  <br>
+  <form action="" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="update" class="btn btn-success text-warning m-4">
+  </form>
+  <div class="m-4">
+    <a href="{{request.META.HTTP_REFERER}}" class="btn btn-warning text-danger">cancel</a>
+  </div>
+</div>
+{% endblock content %}
